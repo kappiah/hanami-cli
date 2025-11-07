@@ -4,9 +4,31 @@ Hanami Command Line Interface
 
 ## Unreleased
 
+## v2.3.0
+
 ### Added
 
-- By default, Ruby gems are sourced from rubygems.org. Add `--gem-source` to use a different server such as gem.coop or your own gem server. (@svooop in #356)
+- Generate a `bin/setup` when generating new apps. (@davidcelis in #359)
+- Generate `bin/hanami` and `bin/rake` binstubs when generating new apps. (@jaredcwhite in #344)
+- Generate a view context class when generating new apps or slices. (@afomera in #350)
+- Add `--gem-source` option to `hanami new`, to specify the gem source for your `Gemfile`. For example: `hanami new my_app --gem-source=gem.coop`. (@svooop in #356)
+
+### Changed
+
+- Print a one-time warning when accessing an un-booted slice’s `keys` in the console. (@timriley in #349)
+- Add `--boot` flag to `console` command, which boots the Hanami app before loading the console. (@kyleplump in #331)
+- In new apps, require dry-operation v1.0.1 in the generated `Gemfile`. This is necessary to pull in a fix required for Hanami’s automatic integration of Dry Operation with the database layer. (@timriley in #351)
+- When generating new apps with `--head`, use the new GitHub repo names in the `Gemfile` (`"hanami/hanami-view"` instead of `"hanami/view"`). (@afomera in #354)
+- When generating new apps with `--head`, add `"hanami-utils"` to the `Gemfile` (@timriley in #362)
+
+### Fixed
+
+- When running `db rollback` in development, also rollback the test database. (@timriley in #355)
+- Remove "restrict" and "unrestrict" statements (which constantly change, even if there are no structure changes) from Postgres structure dumps. (@rickenharp in #336)
+- Remove "-- Dumped from" version comments from Postgres dumps (which will change based on the local client version). (@davidcelis in #358)
+- Check for Postgres database existence in a more robust way. The previous method could fail if both the Postgres username and database name were the same. (@rickenharp in #332)
+- Fix structure dump and load for MySQL 9.5.0. (@timriley in #348)
+- Preserve Bundler environment variables when commands make system calls. (@robyurkowski in 346)
 
 ## v2.3.0.beta2 - 2025-10-17
 
