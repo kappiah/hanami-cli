@@ -4,6 +4,12 @@ Hanami Command Line Interface
 
 ## Unreleased
 
+## v2.3.1 - 2025-11-14
+
+### Fixed
+
+- Fix stray wording in `README.md` in new apps. (@davidcelis in #368)
+
 ## v2.3.0 - 2025-11-12
 
 ### Added
