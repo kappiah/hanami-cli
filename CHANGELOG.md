@@ -4,8 +4,11 @@ Hanami Command Line Interface
 
 ## Unreleased
 
+## v2.3.2 - 2025-11-16
+
 ### Fixed
 
+- Fix potential deadlocks with `db structure dump` for large structure files. (@timriley in #370, report from @pat in #369)
 - Decouple the hanami-assets npm package version from the current Hanami version in generated `package.json`, using the stable minor version (e.g. `^2.3.0`) instead of the exact version (e.g. `^2.3.1`). This allows Hanami patch releases without requiring a corresponding hanami-assets npm package release. (@timriley in #270)
 
 ## v2.3.1 - 2025-11-14
